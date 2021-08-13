@@ -1,8 +1,22 @@
 {% extends 'base.html'%}
 {% block content %}
     <div class="container-fluid">
-        {% for news in Article %}
-           <h3>{{Articles[0].title['title']}}</h3>
+        {% for news in Articles %}
+            <div>
+                <div class="card">
+                    <img class="card" src="{{Articles.image}}" alt="Card image cap" size="100px180">
+                    <div class="card-body">
+                        <h5 class="card-title">{{Articles.author}}</h5>
+                        <p class="card-text">{{Articles.description}}</p>
+                        <a href="{{article.url}}">
+                            <p class="card-text">READ MORE</p>
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Article date:{{Articles.time}}</small>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}
