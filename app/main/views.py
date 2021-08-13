@@ -16,5 +16,6 @@ def article(id):
     
    
     Articles = get_article(id)
+    title = "binamin"
     
     return render_template('articles.html', Articles = Articles)    
