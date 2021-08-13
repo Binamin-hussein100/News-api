@@ -14,6 +14,7 @@ def configure_request(app):
     
 def get_sources():
     url_for_sources = source_base_url.format(api_key)
+    
     with urllib.request.urlopen(url_for_sources) as data:
         sources_data = data.read()
         sources_response = json.loads(sources_data)
@@ -33,7 +34,7 @@ def process_source_results(sources_list):
         source_url = news_source.get('url')
         source_category = news_source.get('category')
         
-        source_object = Sources(source_name,source_id,source_url,source_category)
+        source_object = Sources(source_name,source_category,source_url,source_id)
         sources_results.append(source_object)
         
     return sources_results
@@ -41,7 +42,7 @@ def process_source_results(sources_list):
 def get_article(source):
     
     get_article_url = article_base_url.format(source,api_key)
-    
+    print(get_article_url)
     with urllib.request.urlopen(get_article_url) as url:
         article_data = url.read()
         article_response = json.loads(article_data)
@@ -66,7 +67,7 @@ def process_article(articles_list):
            
             article_object = Article(author,title,description,url,urlToImage,publish,content)
             articles_results.append(article_object)
-                
+         
         return articles_results
                 
                 
