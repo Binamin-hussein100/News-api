@@ -14,7 +14,7 @@ def index():
 @main.route('/article/<id>') 
 def article(id):
     
-    News = get_article(id)
+   
     Articles = get_article(id)
     
-    return render_template('articles.html', News = News, Articles = Articles)    
+    return render_template('articles.html', Articles = Articles)    
