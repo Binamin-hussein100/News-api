@@ -7,17 +7,18 @@
 {% endblock %}
 
 {% block content %}
-    <div  class="container ">
+    <div id="bdgy" class="container" style="height: auto;">
         <h1>NEWS SOURCES</h1>
         <hr>
-       {% for update in  UPDATES %}
-       <li class="source_list">
-        <h3>{{update.id}} </h3> 
-        <a class="btn btn-primary" href="/article/{{update.id}}">{{update.name}}</a>
-        <hr>
-       </li>
-       
-       {% endfor %}
+       <div class="d-flex flex-row">
+        {% for update in  UPDATES %}
+            <div >
+                <h3>{{update.id}} </h3>
+                <hr>
+                <a class="btn btn-primary" href="/article/{{update.id}}">{{update.name}}</a>  
+            </div> 
+        {% endfor %}
+       </div>
     </div>
    
     </div>
